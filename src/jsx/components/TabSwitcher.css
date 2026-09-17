@@ -1,0 +1,38 @@
+.app-root-2026-global_trade_update .app {
+  .tab_switcher {
+    display: flex;
+    flex-wrap: wrap;
+    .tab_switcher_btn {
+      background-color: #fff;
+      border: 1.5px solid var(--un-color-blue-darkest);
+      color: var(--un-color-blue-darkest);
+      cursor: pointer;
+      font-size: var(--un-font-size-xxs);
+      font-weight: var(--un-font-weight-bold);
+      padding: 14px 22px;
+      text-transform: uppercase;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+      & + .tab_switcher_btn {
+        margin-right: -1.5px;
+      }
+      &:hover {
+        background-color: var(--un-color-orange-brand);
+        border-color: var(--un-color-orange-brand);
+        color: #000;
+      }
+      &.tab_switcher_btn--active {
+        background-color: var(--un-color-orange-brand);
+        border-color: var(--un-color-orange-brand);
+        color: #fff;
+        cursor: default;
+        position: relative;
+        z-index: 1;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+  }
+}

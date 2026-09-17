@@ -1,0 +1,43 @@
+.app-root-2026-global_trade_update .app {
+  .global_trade_snapshot {
+    box-sizing: border-box;
+    padding: 40px 20px;
+    .global_trade_snapshot_content {
+      margin: 0 auto;
+      max-width: 1350px;
+    }
+    .global_trade_snapshot_header {
+      align-items: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .global_trade_snapshot_title {
+      /* Matches the surrounding Drupal "Latest publications"/"Latest news"/"Latest remote
+         videos" block titles (38px/700/black) — no design token maps to pure black, so
+         that part stays hardcoded. */
+      color: #000;
+      font-size: var(--un-font-size-xxxl);
+      font-weight: var(--un-font-weight-bolder);
+      line-height: var(--un-line-height-small);
+      margin: 0;
+    }
+    .global_trade_snapshot_chart {
+      margin: 0 auto;
+      max-width: 1000px;
+      /* Datawrapper's embed loads async and starts at ~0 height, so a tab shown for the
+         first time grows from empty over roughly a second. Without a floor here, that
+         growth (or the previous tab collapsing to 0 via [hidden]) briefly shrinks the page
+         below the current scroll position and the browser clamps scroll back up the page.
+         Set to comfortably cover the tallest of the 3 configured charts — bump this if a
+         future chart_id swap makes one noticeably taller. */
+      min-height: 950px;
+      .container_chart_data_wrapper {
+        max-width: 1000px;
+        padding: 0;
+      }
+    }
+  }
+}

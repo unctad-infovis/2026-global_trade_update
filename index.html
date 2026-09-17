@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="stylesheet" href="/assets/font/fonts.css" />
+    <title>2026-global_trade_update</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .drupal_placeholder {
+        background: repeating-linear-gradient(45deg, #f4f4f4, #f4f4f4 10px, #eaeaea 10px, #eaeaea 20px);
+        border-bottom: 1px dashed #999;
+        border-top: 1px dashed #999;
+        box-sizing: border-box;
+        color: #555;
+        font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif;
+        padding: 24px 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      Full-page preview: combines all 3 embeddable entries (Hero, Stats strip, Global trade
+      snapshot) with stand-in blocks where Drupal's own View blocks sit on the real
+      unctad.org page. Each entry is also embeddable on its own — see hero.html,
+      stats-strip.html, global-trade-snapshot.html and the README's "Embedding" section.
+    -->
+
+    <div class="app-root-2026-global_trade_update" id="app-root-2026-global_trade_update-hero">Loading...</div>
+    <script type="module" src="/src/jsx/Index.jsx"></script>
+
+    <div class="drupal_placeholder current-issue">Drupal: "current issue" latest-publication teaser block (cover + title + description + its own buttons)</div>
+
+    <div class="app-root-2026-global_trade_update" id="app-root-2026-global_trade_update-stats-strip">Loading...</div>
+    <script type="module" src="/src/jsx/IndexStatsStrip.jsx"></script>
+
+    <div class="drupal_placeholder policy-insights">Drupal: latest "Monthly policy insights" edition block</div>
+
+    <div class="app-root-2026-global_trade_update" id="app-root-2026-global_trade_update-global-trade-snapshot">Loading...</div>
+    <script type="module" src="/src/jsx/IndexGlobalTradeSnapshot.jsx"></script>
+
+    <div class="drupal_placeholder publications_container">Drupal: Publications block</div>
+    <div class="drupal_placeholder news_container">Drupal: News block</div>
+    <div class="drupal_placeholder videos_container">Drupal: Video block</div>
+    <div class="drupal_placeholder">Drupal: Newsletter signup (out of scope)</div>
+  </body>
+</html>

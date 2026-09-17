@@ -1,0 +1,51 @@
+.app-root-2026-global_trade_update .app {
+  .nav_card {
+    background-color: var(--un-color-orange-brand);
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    flex: 0 1 260px;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    text-align: left;
+    transition: background-color 0.2s ease;
+    &:hover {
+      background-color: var(--un-color-orange-brand-shade);
+    }
+    .nav_card_label {
+      color: #fff;
+      font-size: var(--un-font-size-xs);
+      font-weight: var(--un-font-weight-bold);
+      line-height: var(--un-line-height-small);
+    }
+    .nav_card_photo {
+      background-position: center;
+      background-size: cover;
+      flex: 1;
+      min-height: 120px;
+      &.nav_card_photo--empty {
+        align-items: center;
+        border: 1px dashed rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.7);
+        display: flex;
+        font-size: var(--un-font-size-xxs);
+        justify-content: center;
+      }
+    }
+    .nav_card_arrow {
+      align-items: center;
+      align-self: flex-end;
+      border: 1.5px solid #fff;
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      height: 28px;
+      justify-content: center;
+      width: 28px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+}

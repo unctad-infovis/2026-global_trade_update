@@ -1,0 +1,2 @@
+import{r as e}from"./2026-global_trade_update.styles-CyCt9dRk.js";var t=e(),n=(e=.3)=>{const[n,r]=(0,t.useState)(null),[s,i]=(0,t.useState)(!1),o=window.innerWidth<600?Math.min(.3,e):window.innerWidth<800?Math.min(.6,e):e;return(0,t.useEffect)(()=>{if(!n)return;const e=new IntersectionObserver(([t])=>{t.isIntersecting&&(i(!0),e.unobserve(n))},{threshold:o});return e.observe(n),()=>e.disconnect()},[n,o]),[r,s,n]};export{n as t};
+//# sourceMappingURL=2026-global_trade_update.UseIsVisible-CNpyokCB.js.map

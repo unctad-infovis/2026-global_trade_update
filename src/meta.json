@@ -1,0 +1,86 @@
+{
+  "show_site_header": false,
+  "hero": {
+    "title": "Global trade update",
+    "description": "UN Trade and Development (UNCTAD)'s regular reading of world trade – value, volume and direction across goods and services, with the policy shifts moving the numbers.",
+    "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=2",
+    "cta": {
+      "label": "Read the update",
+      "target_selector": ".current-issue"
+    },
+    "show_cta": false,
+    "show_nav_cards": false,
+    "nav_cards": [
+      {
+        "label": "Monthly policy insights",
+        "image_url": "assets/img/2026-global_trade_update_nav_policy_insights.jpg?v=1",
+        "target_selector": ".policy-insights"
+      },
+      {
+        "label": "Global trade snapshot",
+        "image_url": "assets/img/2026-global_trade_update_nav_global_trade_snapshot.jpg?v=1",
+        "target_selector": ".global-trade-snapshot"
+      }
+    ],
+    "pills": [
+      {
+        "label": "Publications",
+        "target_selector": ".publications_container"
+      },
+      {
+        "label": "News",
+        "target_selector": ".news_container"
+      },
+      {
+        "label": "Videos",
+        "target_selector": ".videos_container"
+      }
+    ]
+  },
+  "stats_strip": {
+    "csv_url": "https://datawrapper.dwcdn.net/1N7t5/3/dataset.csv",
+    "stats": [
+      {
+        "match": { "column": "Date", "value": "developed" },
+        "value_column": "2024",
+        "label": "Digitally deliverable services share of exports, developed economies",
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 1
+      },
+      {
+        "match": { "column": "Date", "value": "developing" },
+        "value_column": "2024",
+        "label": "Digitally deliverable services share of exports, developing economies",
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 1
+      },
+      {
+        "match": { "column": "Date", "value": "LDC" },
+        "value_column": "2024",
+        "label": "Digitally deliverable services share of exports, least developed countries",
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 1
+      }
+    ]
+  },
+  "global_trade_snapshot": {
+    "title": "Global trade snapshot",
+    "tabs": [
+      {
+        "label": "Global trade growth",
+        "chart_id": "AayJg"
+      },
+      {
+        "label": "Goods vs. services trade",
+        "chart_id": "AayJg"
+      },
+      {
+        "label": "Regional trade growth",
+        "chart_id": "AayJg"
+      }
+    ]
+  }
+}

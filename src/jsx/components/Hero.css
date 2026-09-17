@@ -1,0 +1,61 @@
+.app-root-2026-global_trade_update .app {
+  .hero {
+    background-color: var(--un-color-blue-darkest);
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+    padding: clamp(50px, 7.5vw, 87.5px) 20px clamp(175px, 20vw, 237.5px);
+    position: relative;
+    &::before {
+      background: linear-gradient(90deg, rgba(0, 20, 40, 0.88) 0%, rgba(0, 20, 40, 0.6) 55%, rgba(0, 20, 40, 0.2) 100%);
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+    .hero_content {
+      margin: 0 auto;
+      max-width: 1350px;
+      position: relative;
+    }
+    .hero_title {
+      color: #fff;
+      font-size: clamp(var(--un-font-size-xxxl), 5vw, var(--un-font-size-xxxxl));
+      font-weight: var(--un-font-weight-boldest);
+      line-height: var(--un-line-height-smallest);
+      margin: 0 0 16px;
+      max-width: 600px;
+    }
+    .hero_description {
+      color: var(--un-color-grey-lightest);
+      font-size: var(--un-font-size-normal);
+      line-height: var(--un-line-height-normal);
+      margin: 0 0 30px;
+      max-width: 560px;
+    }
+    .hero_cta {
+      border-radius: 100px;
+    }
+  }
+  .hero_nav_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: -120px auto 0;
+    max-width: 1350px;
+    padding: 0 20px;
+    position: relative;
+  }
+  .hero_pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: -100px auto 0;
+    max-width: 1350px;
+    padding: 0 20px;
+    position: relative;
+    .hero_pill {
+      border-radius: 100px;
+      margin: 0;
+    }
+  }
+}
