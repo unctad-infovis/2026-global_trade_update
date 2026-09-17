@@ -1,4 +1,10 @@
 .app-root-2026-global_trade_update .app {
+  .hero_wrapper {
+    /* Establishes a block formatting context so the negative margins below (used to overlap
+       the nav-cards/pills row up into the hero) stay contained here instead of collapsing
+       into a margin-bottom applied to this wrapper from outside (e.g. by a Drupal block class). */
+    overflow: hidden;
+  }
   .hero {
     background-color: var(--un-color-blue-darkest);
     background-position: center;

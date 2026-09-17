@@ -8,7 +8,14 @@ const Hero = ({ meta }) => {
   const { title, description, background_image_url, cta, show_cta, show_nav_cards, nav_cards, pills } = meta.hero;
 
   return (
-    <>
+    // The nav-cards/pills row overlaps up into the hero's own bottom padding via a negative
+    // margin-top, so it and `.hero` were adjacent siblings with adjoining margins — any
+    // margin-bottom applied from outside (e.g. a Drupal "Additional CSS class" on this embed)
+    // collapsed straight into that negative margin and got cancelled out instead of adding
+    // visible space. This wrapper contains the overlap in its own block formatting context
+    // (via `overflow: hidden`, which doesn't clip anything here since nothing escapes its
+    // box) so an external margin-bottom on `.hero_wrapper` behaves normally again.
+    <div className="hero_wrapper">
       <section className="hero" id="hero" style={background_image_url ? { backgroundImage: `url(${resolveAsset(background_image_url)})` } : undefined}>
         <div className="hero_content">
           <h1 className="hero_title">{title}</h1>
@@ -33,7 +40,7 @@ const Hero = ({ meta }) => {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

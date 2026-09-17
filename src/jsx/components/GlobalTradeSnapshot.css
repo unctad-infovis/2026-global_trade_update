@@ -33,7 +33,7 @@
          below the current scroll position and the browser clamps scroll back up the page.
          Set to comfortably cover the tallest of the 3 configured charts — bump this if a
          future chart_id swap makes one noticeably taller. */
-      min-height: 950px;
+      min-height: 100%;
       .container_chart_data_wrapper {
         max-width: 1000px;
         padding: 0;
