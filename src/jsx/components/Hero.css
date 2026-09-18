@@ -10,6 +10,10 @@
     background-position: center;
     background-size: cover;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: clamp(500px, 60vh, 700px);
+    justify-content: flex-end;
     padding: clamp(50px, 7.5vw, 87.5px) 20px clamp(175px, 20vw, 237.5px);
     position: relative;
     &::before {
@@ -19,9 +23,13 @@
       position: absolute;
     }
     .hero_content {
+      /* Without an explicit width, this flex item (`.hero` is now `flex-direction: column`)
+         shrinks to fit its content and centers via the auto margins instead of spanning the
+         full row, which pulled the title/description to the middle instead of the left. */
       margin: 0 auto;
       max-width: 1350px;
       position: relative;
+      width: 100%;
     }
     .hero_title {
       color: #fff;
