@@ -1,7 +1,7 @@
 {
   "show_site_header": false,
   "hero": {
-    "title": "Global trade update",
+    "title": "Global Trade Update",
     "description": "Monthly analysis of key trends shaping global trade and development",
     "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=2",
     "cta": {
@@ -67,8 +67,8 @@
     ]
   },
   "global_trade_snapshot": {
-    "title": "Global trade snapshot",
-    "description": "A quarterly snapshot of world trade – goods and services growth, regional patterns and shifting trade flows, tracked through UNCTAD's core indicators.",
+    "title": "Key global trade data",
+    "description": "These graphs highlight key trends in global trade, drawing on the quarterly Facts and Figures edition of the Global Trade Update. Data last updated: [day month year]. Download the latest facts and figures edition.",
     "tabs": [
       {
         "label": "Global trade growth",
