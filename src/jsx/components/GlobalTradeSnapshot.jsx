@@ -11,7 +11,10 @@ const GlobalTradeSnapshot = ({ meta }) => {
     <section className="global_trade_snapshot global-trade-snapshot">
       <div className="global_trade_snapshot_content">
         <div className="global_trade_snapshot_header">
-          <h2 className="global_trade_snapshot_title">{meta.title}</h2>
+          <div className="global_trade_snapshot_heading">
+            <h2 className="global_trade_snapshot_title">{meta.title}</h2>
+            {meta.description && <p className="global_trade_snapshot_description">{meta.description}</p>}
+          </div>
           <TabSwitcher activeIndex={activeIndex} onChange={setActiveIndex} tabs={meta.tabs} />
         </div>
         {meta.tabs.map((tab, index) => (

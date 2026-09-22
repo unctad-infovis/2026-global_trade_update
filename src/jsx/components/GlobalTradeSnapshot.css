@@ -14,6 +14,9 @@
       justify-content: space-between;
       margin-bottom: 20px;
     }
+    .global_trade_snapshot_heading {
+      max-width: 700px;
+    }
     .global_trade_snapshot_title {
       /* Matches the surrounding Drupal "Latest publications"/"Latest news"/"Latest remote
          videos" block titles (38px/700/black) — no design token maps to pure black, so
@@ -23,6 +26,12 @@
       font-weight: var(--un-font-weight-bolder);
       line-height: var(--un-line-height-small);
       margin: 0;
+    }
+    .global_trade_snapshot_description {
+      color: var(--un-color-grey-text);
+      font-size: var(--un-font-size-normal);
+      line-height: var(--un-line-height-normal);
+      margin: 8px 0 0;
     }
     .global_trade_snapshot_chart {
       margin: 0 auto;

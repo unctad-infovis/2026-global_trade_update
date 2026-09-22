@@ -2,7 +2,7 @@
   "show_site_header": false,
   "hero": {
     "title": "Global trade update",
-    "description": "UN Trade and Development (UNCTAD)'s regular reading of world trade – value, volume and direction across goods and services, with the policy shifts moving the numbers.",
+    "description": "Monthly analysis of key trends shaping global trade and development",
     "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=2",
     "cta": {
       "label": "Read the update",
@@ -68,6 +68,7 @@
   },
   "global_trade_snapshot": {
     "title": "Global trade snapshot",
+    "description": "A quarterly snapshot of world trade – goods and services growth, regional patterns and shifting trade flows, tracked through UNCTAD's core indicators.",
     "tabs": [
       {
         "label": "Global trade growth",
