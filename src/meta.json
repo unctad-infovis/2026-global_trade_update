@@ -68,7 +68,14 @@
   },
   "global_trade_snapshot": {
     "title": "Key global trade data",
-    "description": "These graphs highlight key trends in global trade, drawing on the quarterly Facts and Figures edition of the Global Trade Update. Data last updated: [day month year]. Download the latest facts and figures edition.",
+    "description": "These graphs highlight key trends in global trade, drawing on the quarterly Facts and Figures edition of the Global Trade Update.",
+    "layout": "grid",
+    "download": {
+      "label": "Download the latest facts and figures edition",
+      "csv_url": "https://datawrapper.dwcdn.net/1N7t5/3/dataset.csv",
+      "match": { "column": "Date", "value": "download_url" },
+      "value_column": "url"
+    },
     "tabs": [
       {
         "label": "Global trade growth",

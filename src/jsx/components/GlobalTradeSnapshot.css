@@ -32,20 +32,44 @@
       font-size: var(--un-font-size-normal);
       line-height: var(--un-line-height-normal);
       margin: 8px 0 0;
+      .global_trade_snapshot_download {
+        color: var(--un-color-blue-text);
+        font-weight: var(--un-font-weight-bold);
+      }
     }
     .global_trade_snapshot_chart {
-      margin: 0 auto;
-      max-width: 1000px;
-      /* Datawrapper's embed loads async and starts at ~0 height, so a tab shown for the
+      /* Datawrapper's embed loads async and starts at ~0 height, so a chart shown for the
          first time grows from empty over roughly a second. Without a floor here, that
-         growth (or the previous tab collapsing to 0 via [hidden]) briefly shrinks the page
-         below the current scroll position and the browser clamps scroll back up the page.
-         Set to comfortably cover the tallest of the 3 configured charts — bump this if a
-         future chart_id swap makes one noticeably taller. */
+         growth (or, in 'tabs' layout, the previous tab collapsing to 0 via [hidden]) briefly
+         shrinks the page below the current scroll position and the browser clamps scroll
+         back up the page. Set to comfortably cover the tallest of the 3 configured charts —
+         bump this if a future chart_id swap makes one noticeably taller. */
       min-height: 100%;
       .container_chart_data_wrapper {
-        max-width: 1000px;
         padding: 0;
+      }
+    }
+    .global_trade_snapshot_charts--tabs {
+      .global_trade_snapshot_chart {
+        margin: 0 auto;
+        max-width: 1000px;
+        .container_chart_data_wrapper {
+          max-width: 1000px;
+        }
+      }
+    }
+    .global_trade_snapshot_charts--grid {
+      display: grid;
+      gap: 20px 32px;
+      grid-template-columns: repeat(3, 1fr);
+      .global_trade_snapshot_chart_label {
+        color: #000;
+        font-size: var(--un-font-size-normal);
+        font-weight: var(--un-font-weight-bold);
+        margin: 0 0 8px;
+      }
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
       }
     }
   }

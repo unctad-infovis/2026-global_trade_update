@@ -58,6 +58,10 @@ Reads its three figures from the Datawrapper CSV at `src/meta.json`'s `stats_str
 
 Renders one Datawrapper chart embed per tab, configured via `src/meta.json`'s `global_trade_snapshot.tabs[]` (`label` + `chart_id`). Each Datawrapper chart supplies its own title/subtitle/source/note/"Get the data"/"Download image" footer — nothing extra is rendered around it.
 
+`global_trade_snapshot.layout` switches between two ready-to-use layouts — `"tabs"` (default) shows one chart at a time behind a tab switcher; `"grid"` shows all charts side by side with no tab switcher, stacking to one column under 900px width. Both stay fully wired up regardless of which is active, so toggling is a one-line `meta.json` change, not a rebuild of either.
+
+The "Download the latest facts and figures edition" link at the end of the section's description is read from the *same* Datawrapper table the Stats strip already fetches (`global_trade_snapshot.download.csv_url`, defaulting to `stats_strip.csv_url`) — specifically a row where `global_trade_snapshot.download.match.column` (`"Date"` by default) equals `global_trade_snapshot.download.match.value` (`"download_url"` by default), read from the `global_trade_snapshot.download.value_column` column (`"url"` by default). That row doesn't exist in the table yet — the division needs to add a `download_url` row with the PDF link in a `url` column before this link will appear; until then it's simply omitted (no dead link). This mirrors the Stats strip's design: a new release only means updating that Datawrapper table, never this code.
+
 > Named "Facts and figures" until 2026-09-16 — every file, class, and identifier tied to this widget was renamed to "Global trade snapshot" to match, including ones with no end-user visibility (component/entry filenames, CSS class names, the `meta.json` key). If you're updating an existing Drupal embed of this widget, its script/CSS URLs and container id all changed — the old `2026-global_trade_update.facts-and-figures.min.js` etc. paths are gone; replace the whole snippet with the one above rather than just bumping `?v=`.
 
 ### Local preview
