@@ -3,7 +3,7 @@
   "hero": {
     "title": "Global Trade Update",
     "description": "Monthly analysis of key trends shaping global trade and development",
-    "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=2",
+    "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=3",
     "cta": {
       "label": "Read the update",
       "target_selector": ".current-issue"
