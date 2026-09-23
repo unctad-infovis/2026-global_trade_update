@@ -1,6 +1,6 @@
 # 2026-global_trade_update
 
-**Live demo** https://unctad-infovis.github.io/2026-global_trade_update/hero.html
+**Live demo** https://unctad-infovis.github.io/2026-global_trade_update/
 
 ## About
 
@@ -66,7 +66,9 @@ The "Download the latest facts and figures edition" link at the end of the secti
 
 ### Local preview
 
-Root `index.html` (dev-only — not a build entry, never deployed; the three snippets above are what actually ships) combines all three embeds on one page with stand-in blocks where Drupal's own View blocks would sit, so the full page can be previewed at once during `npm run start` at http://localhost:8080/ instead of checking each entry's own page separately. The individual entries are also viewable on their own at `/hero.html`, `/stats-strip.html` and `/global-trade-snapshot.html` — useful since the hero's CTA/nav cards and any cross-entry anchors only render once their target selector exists on the page (see above), which isn't the case when viewing an entry in isolation.
+Root `index.html` combines all three embeds on one page with stand-in blocks where Drupal's own View blocks would sit, so the full page can be previewed at once during `npm run start` at http://localhost:8080/ instead of checking each entry's own page separately. The individual entries are also viewable on their own at `/hero.html`, `/stats-strip.html` and `/global-trade-snapshot.html` — useful since the hero's CTA/nav cards and any cross-entry anchors only render once their target selector exists on the page (see above), which isn't the case when viewing an entry in isolation.
+
+This same combined page is also what gh-pages serves at the project root (the **Live demo** link above) — but it's built there as a static `dist/index.html` by `scripts/generate-gh-pages-index.js` (run automatically as part of `postbuild`), not as a Vite build entry. Adding `index.html` directly to `vite.config.js`'s Rollup `input` was tried first and rejected: Vite/Rollup renamed and content-hashed the 3 real entry chunks to match index.html's own script tags instead of reusing the existing `hero.min.js`/`stats-strip.min.js`/`global-trade-snapshot.min.js` chunks, breaking the stable filenames the Drupal embeds above hardcode. The generator script instead only reads the already-built `dist/js`/`dist/css` output and writes a static page referencing those exact files, so it can never affect them.
 
 ## Rights of usage
 

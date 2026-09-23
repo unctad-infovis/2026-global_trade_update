@@ -15,6 +15,11 @@ export default defineConfig(({ command }) => ({
       // index.html is a dev-only combined preview (stacks all 3 entries with stand-in
       // Drupal placeholders, see README's "Local preview" section) — not a build entry,
       // never deployed. Only the 3 real embeddable widgets get bundled for production.
+      // (Tried adding it as a 4th Rollup input for a gh-pages landing page — Vite/Rollup
+      // renamed and content-hashed the 3 real entry chunks to match index.html's own script
+      // tags instead of reusing the existing hero/stats-strip/global-trade-snapshot chunks,
+      // breaking the stable filenames Drupal embeds hardcode. Use the standalone
+      // build-gh-pages-index script below instead — it only reads the already-built output.)
       input: {
         hero: './hero.html',
         'stats-strip': './stats-strip.html',
