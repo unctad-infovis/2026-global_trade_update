@@ -69,7 +69,7 @@
   "global_trade_snapshot": {
     "title": "Quarterly facts and figures",
     "description": "These graphs highlight key trends in global trade, drawing on the quarterly Facts and Figures edition of the Global Trade Update.",
-    "layout": "grid",
+    "layout": "",
     "download": {
       "label": "Download the latest facts and figures edition",
       "csv_url": "https://datawrapper.dwcdn.net/1N7t5/3/dataset.csv",
