@@ -2,7 +2,7 @@
   "show_site_header": false,
   "hero": {
     "title": "Global Trade Update",
-    "description": "Monthly analysis of key trends shaping global trade and development",
+    "description": "Monthly analysis of the key trends shaping global trade",
     "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=3",
     "cta": {
       "label": "Read the update",
@@ -79,7 +79,7 @@
     "tabs": [
       {
         "label": "Global trade growth",
-        "chart_id": "AayJg"
+        "chart_id": "rhn4R"
       },
       {
         "label": "Goods vs. services trade",
@@ -87,7 +87,7 @@
       },
       {
         "label": "Regional trade growth",
-        "chart_id": "AayJg"
+        "chart_id": "xqCaY"
       }
     ]
   }
