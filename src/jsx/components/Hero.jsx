@@ -18,8 +18,10 @@ const Hero = ({ meta }) => {
     <div className="hero_wrapper">
       <section className="hero" id="hero" style={background_image_url ? { backgroundImage: `url(${resolveAsset(background_image_url)})` } : undefined}>
         <div className="hero_content">
-          <h1 className="hero_title">{title}</h1>
-          <p className="hero_description">{description}</p>
+          <div className="hero_heading">
+            <h1 className="hero_title">{title}</h1>
+            <p className="hero_description">{description}</p>
+          </div>
           {// "Read the update" CTA is disabled for now but kept wired up behind `show_cta`
           // in meta.json so it can come back without rework.
           show_cta && <ButtonAnchor className="hero_cta" text={cta.label} url={cta.target_selector} />}

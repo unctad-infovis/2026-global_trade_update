@@ -28,6 +28,10 @@
       position: relative;
       width: 100%;
     }
+    .hero_heading {
+      border-left: 10px solid var(--un-color-orange-brand-light);
+      padding-left: 24px;
+    }
     .hero_title {
       color: #fff;
       font-size: clamp(var(--un-font-size-xxxl), 6.5vw, var(--un-font-size-xxxxxl));
