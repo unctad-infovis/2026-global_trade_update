@@ -32,6 +32,7 @@
       font-size: var(--un-font-size-normal);
       line-height: var(--un-line-height-normal);
       margin: 8px 0 0;
+      padding: 0;
       .global_trade_snapshot_download {
         color: var(--un-color-blue-text);
         font-weight: var(--un-font-weight-bold);
