@@ -1,4 +1,7 @@
 .app-root-2026-global_trade_update .app {
+  /* Local addition, one step above general-tools' own --un-font-size-xxxxl (60px) — the
+     largest size token in the shared scale — since the hero title needed to go bigger still. */
+  --un-font-size-xxxxxl: 70px;
   .hero_wrapper {
     /* Establishes a block formatting context so the negative margins below (used to overlap
        the nav-cards/pills row up into the hero) stay contained here instead of collapsing
@@ -27,18 +30,19 @@
     }
     .hero_title {
       color: #fff;
-      font-size: clamp(var(--un-font-size-xxxl), 6vw, var(--un-font-size-xxxxl));
+      font-size: clamp(var(--un-font-size-xxxl), 6.5vw, var(--un-font-size-xxxxxl));
       font-weight: var(--un-font-weight-boldest);
       line-height: var(--un-line-height-smallest);
       margin: 0 0 16px;
-      max-width: 600px;
+      max-width: 700px;
     }
     .hero_description {
       color: var(--un-color-grey-lightest);
-      font-size: var(--un-font-size-xl);
+      font-size: var(--un-font-size-xxl);
       line-height: var(--un-line-height-normal);
       margin: 0 0 30px;
       max-width: 560px;
+      padding: 0;
     }
     .hero_cta {
       border-radius: 100px;

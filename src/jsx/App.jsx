@@ -17,8 +17,10 @@ const App = ({ meta }) => {
     <div
       className="app"
       style={{
-        '--main-color': 'var(--un-color-orange-brand)',
-        '--secondary-color': 'var(--un-color-orange-brand-shade)'
+        // No design token maps to pure black — same exception already made for
+        // .global_trade_snapshot_title's color, see GlobalTradeSnapshot.css.
+        '--main-color': '#000',
+        '--secondary-color': 'var(--un-color-grey-darkest)'
       }}
       ref={appRef}
     >
