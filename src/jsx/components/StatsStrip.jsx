@@ -56,7 +56,11 @@ const StatsStrip = ({ meta }) => {
   const stats = meta.stats.map(stat => {
     const row = rows?.find(r => r[stat.match.column] === stat.match.value);
     const numeric = parseLocaleNumber(row?.[stat.value_column]);
-    return { ...stat, numeric };
+    // The tile caption also comes from the Datawrapper table when `label_column` is set
+    // (it changes monthly along with the figure), falling back to the static meta.json
+    // label if that column/row isn't present yet.
+    const label = (stat.label_column && row?.[stat.label_column]) || stat.label;
+    return { ...stat, label, numeric };
   });
 
   return (

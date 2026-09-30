@@ -1,7 +1,7 @@
 {
   "show_site_header": true,
   "hero": {
-    "title": "Global trade update",
+    "title": "Global trade\nupdate",
     "description": "Monthly analysis of the key trends shaping global trade",
     "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=3",
     "cta": {
@@ -38,11 +38,12 @@
     ]
   },
   "stats_strip": {
-    "csv_url": "https://datawrapper.dwcdn.net/1N7t5/3/dataset.csv",
+    "csv_url": "https://datawrapper.dwcdn.net/YmLLe/3/dataset.csv",
     "stats": [
       {
         "match": { "column": "Date", "value": "developed" },
-        "value_column": "2024",
+        "value_column": "value",
+        "label_column": "label",
         "label": "Digitally deliverable services share of exports, developed economies",
         "prefix": "",
         "suffix": "%",
@@ -50,7 +51,8 @@
       },
       {
         "match": { "column": "Date", "value": "developing" },
-        "value_column": "2024",
+        "value_column": "value",
+        "label_column": "label",
         "label": "Digitally deliverable services share of exports, developing economies",
         "prefix": "",
         "suffix": "%",
@@ -58,7 +60,8 @@
       },
       {
         "match": { "column": "Date", "value": "LDC" },
-        "value_column": "2024",
+        "value_column": "value",
+        "label_column": "label",
         "label": "Digitally deliverable services share of exports, least developed countries",
         "prefix": "",
         "suffix": "%",
@@ -68,11 +71,11 @@
   },
   "global_trade_snapshot": {
     "title": "Quarterly facts and figures",
-    "description": "These graphs highlight key trends in global trade, drawing on the quarterly Facts and Figures edition of the Global Trade Update.",
+    "description": "These graphs highlight key trends in global trade, drawing on the quarterly facts and figures edition of the global trade update.",
     "layout": "",
     "download": {
-      "label": "Download the latest facts and figures edition",
-      "csv_url": "https://datawrapper.dwcdn.net/1N7t5/3/dataset.csv",
+      "label": "facts and figures edition of the global trade update",
+      "csv_url": "https://datawrapper.dwcdn.net/YmLLe/3/dataset.csv",
       "match": { "column": "Date", "value": "download_url" },
       "value_column": "url"
     },

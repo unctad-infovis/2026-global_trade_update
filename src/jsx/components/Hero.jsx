@@ -19,7 +19,14 @@ const Hero = ({ meta }) => {
       <section className="hero" id="hero" style={background_image_url ? { backgroundImage: `url(${resolveAsset(background_image_url)})` } : undefined}>
         <div className="hero_content">
           <div className="hero_heading">
-            <h1 className="hero_title">{title}</h1>
+            <h1 className="hero_title">
+              {// Split into explicit lines (rather than relying on a max-width to force a
+              // wrap) so the title stays on exactly this many lines at every viewport width,
+              // not just the ones narrow enough to wrap it there on its own.
+              title.split('\n').map(line => (
+                <div key={line}>{line}</div>
+              ))}
+            </h1>
             <p className="hero_description">{description}</p>
           </div>
           {// "Read the update" CTA is disabled for now but kept wired up behind `show_cta`

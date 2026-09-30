@@ -83,6 +83,13 @@
       }
     }
   }
+  @media (max-width: 1199px) {
+    .stats_strip_grid {
+      .stats_strip_tile::before {
+        display: none;
+      }
+    }
+  }
   @media (max-width: 720px) {
     .stats_strip_grid {
       grid-template-columns: 1fr;

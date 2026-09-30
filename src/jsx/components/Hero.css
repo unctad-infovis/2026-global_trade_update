@@ -28,17 +28,17 @@
       position: relative;
       width: 100%;
     }
-    .hero_heading {
-      border-left: 10px solid var(--un-color-orange-brand-light);
-      padding-left: 24px;
-    }
     .hero_title {
+      border-left: 10px solid var(--un-color-orange-brand-light);
       color: #fff;
       font-size: clamp(var(--un-font-size-xxxl), 6.5vw, var(--un-font-size-xxxxxl));
       font-weight: var(--un-font-weight-boldest);
       line-height: var(--un-line-height-smallest);
       margin: 0 0 16px;
-      max-width: 700px;
+      padding-left: 24px;
+      /* Shrinks to fit its own (now 2-line) content instead of stretching to max-width, so
+         the accent bar hugs the text rather than running the full column width. */
+      width: max-content;
     }
     .hero_description {
       color: var(--un-color-grey-lightest);
@@ -46,7 +46,7 @@
       line-height: var(--un-line-height-normal);
       margin: 0 0 30px;
       max-width: 560px;
-      padding: 0;
+      padding: 0 0 0 0;
     }
     .hero_cta {
       border-radius: 100px;

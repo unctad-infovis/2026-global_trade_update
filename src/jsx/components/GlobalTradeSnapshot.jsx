@@ -29,6 +29,11 @@ const GlobalTradeSnapshot = ({ meta }) => {
       .catch(error => console.error(error));
   }, [meta.download]);
 
+  // meta.download.label is a substring of meta.description (e.g. "Facts and Figures edition
+  // of the Global Trade Update") that becomes the link itself, rather than a separate
+  // trailing sentence — split once here so the render stays a plain [before, after] insert.
+  const descriptionParts = meta.download && meta.description?.includes(meta.download.label) ? meta.description.split(meta.download.label) : null;
+
   return (
     <section className="global_trade_snapshot global-trade-snapshot">
       <div className="global_trade_snapshot_content">
@@ -37,15 +42,16 @@ const GlobalTradeSnapshot = ({ meta }) => {
             <h2 className="global_trade_snapshot_title">{meta.title}</h2>
             {meta.description && (
               <p className="global_trade_snapshot_description">
-                {meta.description}
-                {meta.download && downloadUrl && (
+                {descriptionParts && downloadUrl ? (
                   <>
-                    {' '}
+                    {descriptionParts[0]}
                     <a className="global_trade_snapshot_download" href={downloadUrl} rel="noreferrer" target="_blank">
                       {meta.download.label}
                     </a>
-                    .
+                    {descriptionParts[1]}
                   </>
+                ) : (
+                  meta.description
                 )}
               </p>
             )}
