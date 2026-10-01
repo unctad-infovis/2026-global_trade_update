@@ -1,7 +1,8 @@
 {
   "show_site_header": true,
   "hero": {
-    "title": "Global trade\nupdate",
+    "title": "Global trade update",
+    "logo_url": "assets/img/2026-global_trade_update_logo.png?v=1",
     "description": "Monthly analysis of the key trends shaping global trade",
     "background_image_url": "assets/img/2026-global_trade_update_hero.jpg?v=3",
     "cta": {

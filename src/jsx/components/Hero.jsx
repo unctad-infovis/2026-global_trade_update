@@ -5,7 +5,7 @@ import NavCard from './NavCard.jsx';
 import './Hero.css';
 
 const Hero = ({ meta }) => {
-  const { title, description, background_image_url, cta, show_cta, show_nav_cards, nav_cards, pills } = meta.hero;
+  const { title, logo_url, description, background_image_url, cta, show_cta, show_nav_cards, nav_cards, pills } = meta.hero;
 
   return (
     // The nav-cards/pills row overlaps up into the hero's own bottom padding via a negative
@@ -20,12 +20,10 @@ const Hero = ({ meta }) => {
         <div className="hero_content">
           <div className="hero_heading">
             <h1 className="hero_title">
-              {// Split into explicit lines (rather than relying on a max-width to force a
-              // wrap) so the title stays on exactly this many lines at every viewport width,
-              // not just the ones narrow enough to wrap it there on its own.
-              title.split('\n').map(line => (
-                <div key={line}>{line}</div>
-              ))}
+              {// The official GTU logo, exported as a PNG by the designer (tmp/Logo_GTU_officiel.png,
+              // copied into public assets) – replaces a text-rendered title so the wordmark matches
+              // the brand asset exactly. Its own accent bar and two-line layout are baked into the image.
+              <img alt={title} src={resolveAsset(logo_url)} /> }
             </h1>
             <p className="hero_description">{description}</p>
           </div>

@@ -11,6 +11,14 @@
       background: var(--un-color-blue-lightest);
       border-radius: 18px;
       box-sizing: border-box;
+      /* Sizes the value text off this tile's own rendered width (see .stats_strip_value)
+         rather than the viewport, because the page this embeds into (Drupal/Bootstrap)
+         caps its content column at fixed widths (750px/970px/1170px) that jump at each
+         breakpoint instead of scaling with the viewport — a vw-based font-size assumed
+         the tile was roughly viewport-width/3 and badly overflowed whenever a host
+         breakpoint pinned the real column narrower than that, e.g. the 750px-wide
+         Bootstrap "sm" tier spanning roughly 768-991px viewport width. */
+      container-type: inline-size;
       display: flex;
       flex-direction: column;
       height: 150px;
@@ -59,7 +67,7 @@
       }
       .stats_strip_value {
         color: var(--un-color-blue-text-dark);
-        font-size: clamp(var(--un-font-size-xxl), 8vw, var(--un-font-size-xxxxl));
+        font-size: clamp(var(--un-font-size-xxl), 20cqw, var(--un-font-size-xxxxl));
         font-weight: var(--un-font-weight-boldest);
         line-height: 1;
         margin: 0 0 8px;
@@ -90,7 +98,7 @@
       }
     }
   }
-  @media (max-width: 720px) {
+  @media (max-width: 860px) {
     .stats_strip_grid {
       grid-template-columns: 1fr;
     }
