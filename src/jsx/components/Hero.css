@@ -1,10 +1,4 @@
 .app-root-2026-global_trade_update .app {
-  .hero_wrapper {
-    /* Establishes a block formatting context so the negative margins below (used to overlap
-       the nav-cards/pills row up into the hero) stay contained here instead of collapsing
-       into a margin-bottom applied to this wrapper from outside (e.g. by a Drupal block class). */
-    overflow: hidden;
-  }
   .hero {
     background-color: var(--un-color-blue-darkest);
     background-position: center;
@@ -12,9 +6,13 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: clamp(500px, 60vh, 700px);
     justify-content: flex-end;
-    padding: clamp(50px, 7.5vw, 87.5px) 20px clamp(175px, 20vw, 237.5px);
+    /* `min-height` (not `height`) so the box grows to fit its content – including the
+       nav-cards/pills row below – instead of clipping it at a fixed height when they wrap
+       to extra rows on narrow screens. `background-size: cover` keeps the image filling
+       whatever height results. */
+    min-height: clamp(500px, 60vh, 700px);
+    padding: clamp(50px, 7.5vw, 87.5px) 20px;
     position: relative;
     .hero_content {
       /* Without an explicit width, this flex item (`.hero` is now `flex-direction: column`)
@@ -48,27 +46,41 @@
     .hero_cta {
       border-radius: 100px;
     }
-  }
-  .hero_nav_cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin: -120px auto 0;
-    max-width: 1350px;
-    padding: 0 20px;
-    position: relative;
-  }
-  .hero_pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: -100px auto 0;
-    max-width: 1350px;
-    padding: 0 20px;
-    position: relative;
-    .hero_pill {
-      border-radius: 100px;
-      margin: 0;
+    .hero_nav_cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 24px auto 0;
+      max-width: 1350px;
+      width: 100%;
+    }
+    .hero_pills {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px auto 0;
+      max-width: 1350px;
+      width: 100%;
+      .hero_pill {
+        border-radius: 100px;
+        margin: 0;
+      }
+      .hero_link {
+        /* ButtonAnchor.css's generic `a` rule (shared with the pill buttons above) fills in a
+           black background/padding/border-radius by default – reset those here since this is
+           a plain text link, not a pill. */
+        background-color: transparent;
+        border-radius: 0;
+        color: #fff;
+        font-weight: var(--un-font-weight-bold);
+        margin: 0;
+        padding: 0;
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }

@@ -35,6 +35,10 @@
       {
         "label": "Videos",
         "target_selector": ".videos_container"
+      },
+      {
+        "label": "Subscribe",
+        "url": "https://unctad.org/subscribe"
       }
     ]
   },
