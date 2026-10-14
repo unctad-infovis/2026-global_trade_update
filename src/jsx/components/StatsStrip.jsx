@@ -3,8 +3,9 @@ import useIsVisible from '@unctad-infovis/general-tools/helpers/UseIsVisible.js'
 import { useEffect, useState } from 'react';
 
 import formatNumber from '../helpers/FormatNumber.js';
-import parseLocaleNumber from '../helpers/ParseLocaleNumber.js';
+import parseFormattedValue from '../helpers/ParseFormattedValue.js';
 import parseTsv from '../helpers/ParseTsv.js';
+import resolveDatawrapperCsvUrl from '../helpers/ResolveDatawrapperCsvUrl.js';
 import './StatsStrip.css';
 
 // Tile styling ported from 2026-beyond_gdp's StatTiles (same card/count-up language) —
@@ -45,23 +46,32 @@ const StatsStrip = ({ meta }) => {
   const [gridRef, inView] = useIsVisible(0.3);
 
   useEffect(() => {
-    if (!meta.csv_url) return;
+    if (!meta.datawrapper_chart_id) return;
 
-    fetch(meta.csv_url)
+    resolveDatawrapperCsvUrl(meta.datawrapper_chart_id)
+      .then(csvUrl => fetch(csvUrl))
       .then(response => response.text())
       .then(text => setRows(parseTsv(text)))
       .catch(error => console.error(error));
-  }, [meta.csv_url]);
+  }, [meta.datawrapper_chart_id]);
 
-  const stats = meta.stats.map(stat => {
-    const row = rows?.find(r => r[stat.match.column] === stat.match.value);
-    const numeric = parseLocaleNumber(row?.[stat.value_column]);
-    // The tile caption also comes from the Datawrapper table when `label_column` is set
-    // (it changes monthly along with the figure), falling back to the static meta.json
-    // label if that column/row isn't present yet.
-    const label = (stat.label_column && row?.[stat.label_column]) || stat.label;
-    return { ...stat, label, numeric };
-  });
+  const stats = meta.stats
+    .map(stat => {
+      const row = rows?.find(r => r[stat.match.column] === stat.match.value);
+      // A raw value of "false" marks a reserved card slot (e.g. a stat pending confirmation) —
+      // skip it entirely rather than showing an "unavailable" tile.
+      if (row?.[stat.value_column] === 'false') return null;
+      // The whole formatted figure (e.g. "$3.8T", "35%") lives in the Datawrapper cell, not
+      // meta.json — this parses out the bare number to animate plus the prefix/suffix/decimals
+      // to render around it, so a formatting change only requires editing the table.
+      const formatted = parseFormattedValue(row?.[stat.value_column]);
+      // The tile caption also comes from the Datawrapper table when `label_column` is set
+      // (it changes monthly along with the figure), falling back to the static meta.json
+      // label if that column/row isn't present yet.
+      const label = (stat.label_column && row?.[stat.label_column]) || stat.label;
+      return { ...stat, label, numeric: formatted?.numeric, prefix: formatted?.prefix, suffix: formatted?.suffix, decimals: formatted?.decimals };
+    })
+    .filter(Boolean);
 
   return (
     <div className={`stats_strip_grid${inView ? ' stats_strip_grid--inview' : ''}`} id="stats-strip" ref={gridRef}>

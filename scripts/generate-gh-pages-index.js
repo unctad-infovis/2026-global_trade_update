@@ -26,7 +26,13 @@ const findChunk = prefix => {
 };
 
 const stylesChunk = findChunk('styles');
-const parseTsvChunk = findChunk('ParseTsv');
+// The stats-strip/global-trade-snapshot shared chunk's name depends on whichever module in it
+// Rollup picks as the facade (e.g. ParseTsv, ResolveDatawrapperCsvUrl) — it shifts whenever that
+// module graph changes, so read it straight out of the built entry's own import rather than
+// hardcoding a name that goes stale on the next shared-helper addition.
+const statsStripEntry = fs.readFileSync(path.join(distDir, 'js', `${name}.stats-strip.min.js`), 'utf8');
+const sharedChunk = [...statsStripEntry.matchAll(/from"\.\/([^"]+\.js)"/g)].map(m => m[1]).find(f => f !== stylesChunk);
+if (!sharedChunk) throw new Error('generate-gh-pages-index: could not resolve the stats-strip shared chunk from the built entry');
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -72,7 +78,7 @@ const html = `<!DOCTYPE html>
     <div class="drupal_placeholder current-issue">Drupal: "current issue" latest-publication teaser block (cover + title + description + its own buttons)</div>
 
     <script type="module" crossorigin src="./js/${name}.stats-strip.min.js"></script>
-    <link rel="modulepreload" crossorigin href="./js/${parseTsvChunk}">
+    <link rel="modulepreload" crossorigin href="./js/${sharedChunk}">
     <link rel="stylesheet" crossorigin href="./css/${name}_stats_strip.min.css">
     <div class="app-root-${name}" id="app-root-${name}-stats-strip">Loading...</div>
 
@@ -92,4 +98,4 @@ const html = `<!DOCTYPE html>
 `;
 
 fs.writeFileSync(path.join(distDir, 'index.html'), html);
-console.log(`generate-gh-pages-index: wrote dist/index.html (styles chunk: ${stylesChunk}, ParseTsv chunk: ${parseTsvChunk})`);
+console.log(`generate-gh-pages-index: wrote dist/index.html (styles chunk: ${stylesChunk}, shared chunk: ${sharedChunk})`);

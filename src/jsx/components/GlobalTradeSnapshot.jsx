@@ -2,6 +2,7 @@ import ChartDataWrapper from '@unctad-infovis/general-tools/components/ChartData
 import { useEffect, useState } from 'react';
 
 import parseTsv from '../helpers/ParseTsv.js';
+import resolveDatawrapperCsvUrl from '../helpers/ResolveDatawrapperCsvUrl.js';
 import TabSwitcher from './TabSwitcher.jsx';
 import './GlobalTradeSnapshot.css';
 
@@ -17,9 +18,10 @@ const GlobalTradeSnapshot = ({ meta }) => {
   const [downloadUrl, setDownloadUrl] = useState(null);
 
   useEffect(() => {
-    if (!meta.download?.csv_url) return;
+    if (!meta.download?.datawrapper_chart_id) return;
 
-    fetch(meta.download.csv_url)
+    resolveDatawrapperCsvUrl(meta.download.datawrapper_chart_id)
+      .then(csvUrl => fetch(csvUrl))
       .then(response => response.text())
       .then(text => {
         const rows = parseTsv(text);

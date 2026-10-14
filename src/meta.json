@@ -43,34 +43,25 @@
     ]
   },
   "stats_strip": {
-    "csv_url": "https://datawrapper.dwcdn.net/YmLLe/3/dataset.csv",
+    "datawrapper_chart_id": "YmLLe",
     "stats": [
       {
-        "match": { "column": "Date", "value": "developed" },
+        "match": { "column": "label", "value": "card_1" },
         "value_column": "value",
-        "label_column": "label",
-        "label": "Digitally deliverable services share of exports, developed economies",
-        "prefix": "",
-        "suffix": "%",
-        "decimals": 1
+        "label_column": "description",
+        "label": "Global biodiversity-based exports, 2024"
       },
       {
-        "match": { "column": "Date", "value": "developing" },
+        "match": { "column": "label", "value": "card_2" },
         "value_column": "value",
-        "label_column": "label",
-        "label": "Digitally deliverable services share of exports, developing economies",
-        "prefix": "",
-        "suffix": "%",
-        "decimals": 1
+        "label_column": "description",
+        "label": "Developing countries' share of global biodiversity-based exports, 2024"
       },
       {
-        "match": { "column": "Date", "value": "LDC" },
+        "match": { "column": "label", "value": "card_3" },
         "value_column": "value",
-        "label_column": "label",
-        "label": "Digitally deliverable services share of exports, least developed countries",
-        "prefix": "",
-        "suffix": "%",
-        "decimals": 1
+        "label_column": "description",
+        "label": "Top tariff faced by natural substitutes to plastics"
       }
     ]
   },
@@ -80,9 +71,9 @@
     "layout": "",
     "download": {
       "label": "facts and figures edition of the global trade update",
-      "csv_url": "https://datawrapper.dwcdn.net/YmLLe/3/dataset.csv",
-      "match": { "column": "Date", "value": "download_url" },
-      "value_column": "url"
+      "datawrapper_chart_id": "YmLLe",
+      "match": { "column": "label", "value": "download_url" },
+      "value_column": "value"
     },
     "tabs": [
       {

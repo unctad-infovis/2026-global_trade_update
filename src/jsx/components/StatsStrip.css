@@ -3,7 +3,11 @@
     box-sizing: border-box;
     display: grid;
     gap: 22px;
-    grid-template-columns: repeat(3, 1fr);
+    /* `auto-fit` (not a fixed `repeat(3, 1fr)`) so the grid reflows to however many tiles
+       actually render – some stats can be hidden at runtime (see StatsStrip.jsx's "false"
+       value check) without leaving an empty column behind. 400px keeps 3 tiles per row at
+       this container's max-width (1350px) while still letting 1-2 tiles expand to fill it. */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     margin: 0 auto;
     max-width: 1350px;
     padding: 30px 20px;
