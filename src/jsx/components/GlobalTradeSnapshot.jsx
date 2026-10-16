@@ -6,6 +6,10 @@ import resolveDatawrapperCsvUrl from '../helpers/ResolveDatawrapperCsvUrl.js';
 import TabSwitcher from './TabSwitcher.jsx';
 import './GlobalTradeSnapshot.css';
 
+// unctad.org already loads gtag.js site-wide, so this widget only needs to call into it, not
+// load its own copy.
+const analytics = window.gtag || undefined;
+
 const GlobalTradeSnapshot = ({ meta }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   // 'tabs' (default) shows one chart at a time behind a tab switcher; 'grid' shows all
@@ -36,6 +40,19 @@ const GlobalTradeSnapshot = ({ meta }) => {
   // trailing sentence — split once here so the render stays a plain [before, after] insert.
   const descriptionParts = meta.download && meta.description?.includes(meta.download.label) ? meta.description.split(meta.download.label) : null;
 
+  // People rarely click past the first tab, so this tracks which ones actually get used.
+  const changeTab = index => {
+    setActiveIndex(index);
+
+    if (typeof analytics !== 'undefined') {
+      analytics('event', 'Tab Click', {
+        event_category: __PROJECT_NAME__,
+        event_label: meta.tabs[index].label,
+        transport_type: 'beacon'
+      });
+    }
+  };
+
   return (
     <section className="global_trade_snapshot global-trade-snapshot">
       <div className="global_trade_snapshot_content">
@@ -58,7 +75,7 @@ const GlobalTradeSnapshot = ({ meta }) => {
               </p>
             )}
           </div>
-          {layout === 'tabs' && <TabSwitcher activeIndex={activeIndex} onChange={setActiveIndex} tabs={meta.tabs} />}
+          {layout === 'tabs' && <TabSwitcher activeIndex={activeIndex} onChange={changeTab} tabs={meta.tabs} />}
         </div>
         <div className={`global_trade_snapshot_charts global_trade_snapshot_charts--${layout}`}>
           {meta.tabs.map((tab, index) => (
